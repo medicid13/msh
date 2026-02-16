@@ -1,0 +1,167 @@
+
+    .wrapper-product{
+      display:flex;
+      align-items:flex-end;
+      padding-left: calc(var(--overlap) + 40px);
+      padding-right: 40px;
+      gap: 0;
+      overflow: visible;
+      width: min(1100px, 94%);
+    }
+
+    .card-product{
+      width: var(--card-width);
+      height: var(--card-height);
+      flex: 0 0 var(--card-width);
+      border-radius: 15px;
+      padding: 1.25rem;
+      box-sizing: border-box;
+      position: relative;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      transition:
+        transform 360ms cubic-bezier(.2,.9,.2,1),
+        box-shadow 360ms cubic-bezier(.2,.9,.2,1),
+        filter 360ms;
+      transform-origin: center bottom;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(2,6,23,0.5);
+      background: #111827; 
+      overflow: visible;
+      margin-left: calc(var(--card-width) * -0.5);
+      /* Default lebih sempit */
+      transform: scale(0.95);
+    }
+
+    .card-product:first-child{
+      margin-left: 0;
+    }
+
+    .card-product img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      position:absolute;
+      inset:0;
+      border-radius:15px;
+      z-index:1;
+      transition: transform 420ms ease;
+    }
+
+    .card-product::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:15px;
+      background: linear-gradient(180deg, rgba(6,10,20,0.55), rgba(6,10,20,0.55));
+      z-index:2;
+      transition: opacity 360ms;
+      opacity:0.45;
+      pointer-events:none;
+    }
+
+    /* Teks default di pojok kiri bawah */
+    .card-label-product{
+      position: absolute;
+      bottom: 1.25rem;      /* sama dengan padding card */
+      left: 1.25rem;
+      z-index: 3;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: opacity 300ms ease;
+      pointer-events: none;  /* agar tidak mengganggu klik */
+    }
+
+    /* Info lengkap (hidden default) */
+    .card-product .info-product{
+      position:relative;
+      z-index:4;
+      color: #ffffff;
+      opacity:0;
+      transform: translateY(18px);
+      transition: opacity 360ms cubic-bezier(.2,.9,.2,1), transform 360ms cubic-bezier(.2,.9,.2,1);
+      width:100%;
+    }
+
+    .card-product h1{ margin:0; font-size:1.2rem; letter-spacing:0.2px; }
+    .card-product p{ margin:8px 0 12px; font-size:0.92rem; color:rgba(255,255,255,0.9); line-height:1.25; }
+
+    .card-product button{
+      padding:0.55rem 0.8rem;
+      border-radius:6px;
+      border:none;
+      background:#fff;
+      color:#0b1020;
+      font-weight:700;
+      cursor:pointer;
+      z-index:5;
+    }
+
+    /* Hover: card membesar dan naik */
+    .card-product:hover{
+      transform: translateY(-18px) scale(1.05);
+      z-index:40;
+      box-shadow: 0 25px 50px rgba(2,6,23,0.6);
+    }
+
+    /* Saat hover, label default menghilang */
+    .card-product:hover .card-label-product{
+      opacity: 0;
+    }
+
+    /* Info lengkap muncul */
+    .card-product:hover .info-product{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* Kartu di sebelah kanan bergeser */
+    .card-product:hover ~ .card-product{
+      transform: translateX(calc(var(--overlap))) translateY(0) scale(0.95);
+      z-index: 20;
+    }
+
+    /* Responsif tablet */
+    @media (max-width:900px){
+      :root{ --card-width: 240px; --card-height:320px; --overlap: calc(var(--card-width) * 0.45); }
+      .wrapper-product{ padding-left: calc(var(--overlap) + 20px); }
+      .card-label-product{ font-size:0.8rem; padding:0.3rem 0.8rem; }
+    }
+
+    /* Mobile: susun vertikal, nonaktifkan semua transform */
+    @media (max-width:640px){
+      .wrapper-product{
+        flex-direction: column;
+        align-items:center;
+        padding: 24px;
+      }
+      .card-product{
+        margin-left:0 !important;
+        width: 92%;
+        max-width:420px;
+        transform: none !important;
+      }
+      .card-product + .card-product{ margin-top: 18px; }
+      .card-product:hover ~ .card-product{ transform: none !important; }
+      .card-product:hover{
+        transform: none !important;
+      }
+      /* Di mobile, label tetap terlihat, info muncul di atas? */
+      .card-product .info-product{
+        opacity:1 !important;       /* agar info selalu terlihat? Atur sesuai keinginan */
+        transform: translateY(0) !important;
+        background: rgba(0,0,0,0.5); /* contoh penyesuaian */
+        padding: 0.5rem;
+        border-radius: 10px;
+      }
+      .card-label-product{
+        display: none; /* sembunyikan label di mobile karena info sudah tampil */
+      }
+    }

@@ -1,0 +1,373 @@
+<?php
+// Handle success message after form submission
+$showSuccess = isset($_GET['success']) && $_GET['success'] == 1;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSH Neosantara Group</title>
+    <!-- Font Awesome for icons (optional, but kept for simplicity) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="asset/logo_R.png">
+</head>
+<body>
+
+    <!-- LOADING SCREEN ANIMATION -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <p> loading.. Please Use Desktop Mode For Better Experience</p>
+    </div>
+
+    <!-- MODAL POPUP (hidden by default) -->
+    <div id="modal" class="modal">
+        <div class="modal-content glass">
+            <span class="close-btn"><i class="fas fa-times"></i></span>
+            <h2>Visi</h2>
+            <p>Menjadi pioneer kolaborasi AI Indonesia-Tiongkok terdepan yang mengintegrasikan kearifan lokal Nusantara dengan inovasi teknologi global, menciptakan ekosistem kecerdasan buatan yang beretika, inklusif, dan berkelas dunia.</p>
+            <h2>Misi</h2>
+            <p>1. Mendigitalkan kekayaan lokal Indonesia (bahasa, budaya, data) untuk pengembangan AI global
+
+<br>2. Menjembatani kebutuhan teknologi perusahaan internasional dengan potensi lokal Indonesia
+
+<br>3. Membangun infrastruktur data berkualitas tinggi untuk pelatihan AI di berbagai sektor
+
+<br>4. Mencetak talenta AI yang menguasai konteks global dan lokal</p>
+            
+           <!--<a href="#tech" class="btn-primary modal-cta">Get Started</a>-->
+        </div>
+    </div>
+
+    <!-- SUCCESS POPUP (hidden by default, shown after form submission) -->
+    <div id="success-popup" class="success-popup glass">
+        <i class="fas fa-check-circle"></i>
+        <p>Message sent successfully!</p>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="asset/logo_R.png" alt="">
+                <span class="logo-text">M S H<span class="accent"> Neosantara Group</span></span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#tech" class="nav-link">News</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" id="open-modal-btn" class="btn-outline">Visi & Misi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <!-- Animated grid background (CSS) -->
+        <div class="grid-bg"></div>
+        <!-- Floating AI neural network lines (canvas) -->
+        <canvas id="neural-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">M S H <br><span class="gradient-text">Neosantara Group</span></h1>
+            <p class="hero-subtitle">Menjembatani Kearifan Lokal Nusantara dengan Keunggulan Teknologi Artifisial Internasional</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Start Building</a>
+            </div>
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT AI SECTION -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h2>History</h2>
+                    <p>PT MSH Neosantara Group lahir dari visi untuk menyatukan kekuatan budaya dan teknologi dua negara besar: Indonesia dan Tiongkok.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">M</span><span>Mulia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">S</span><span>Santhi</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">H</span><span>Huáxìn 华信</span>
+                        </div>
+                    </div>
+                    <p class="text2">Neosantara — Gabungan Neo (Baru) dan Nusantara (Indonesia), melambangkan ekosistem AI Indonesia baru yang berbasis kolaborasi internasional</p>
+                </div>
+                <div class="about-image reveal">
+                    <div class="image-container glass">
+                        <img src="asset/face.png" alt="AI Illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE CARDS SECTION -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title reveal">Cutting-Edge Capabilities</h2>
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card glass tilt-card">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Product Testing</h3>
+                    <p>Deep learning models that continuously improve with your data.</p>
+                    <div class="card-hidden">
+                        <span>Adaptive learning, transfer learning, and real-time inference.</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="feature-card glass tilt-card">
+                    <div class="card-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Translation</h3>
+                    <p>Forecast trends and behaviors with high accuracy.</p>
+                    <div class="card-hidden">
+                        <span>Time-series forecasting, anomaly detection.</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                
+                <div class="feature-card glass tilt-card">
+                    <div class="card-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Data Services</h3>
+                    <p>Deploy intelligent agents that make decisions in complex environments.</p>
+                    <div class="card-hidden">
+                        <span>Reinforcement learning, multi-agent coordination.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- CARD PRODUCT SECTION (Stacked Cards) -->
+    <section id="card" class="card-section">
+        <div class="about-text reveal">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h2>Product Testing</h2>
+                    <p class="text2">Di pasar wearable tech yang sangat kompetitif, presisi bukan sekadar fitur—itu adalah fondasi kepercayaan. Kami menyediakan solusi pengujian komprehensif yang berfokus pada integrasi sensor, indikator fisiologis, dan ketahanan perangkat keras untuk memastikan produk Anda tidak hanya berfungsi, tetapi juga unggul.</p>
+                    <h3 style="margin-top: 20px;">Layanan Utama Kami</h3>
+                    <p  class="text2">-> Voice Intelligence<br>-> OCR Intelligence<br>-> Kepatuhan Regulasi & Standar
+                    </p>
+                    
+                </div>
+        <div class="wrapper-product">
+            <!-- Card 1 -->
+            <div class="card-product">
+                <img src="https://runsmarterdaily.com/wp-content/uploads/2025/04/ai_form_analysis_coaching.jpg" alt="">
+                <div class="card-label-product">Voice Intelligence</div>
+                <div class="info-product">
+                    <h1>Voice Intelligence</h1>
+                    <p>Mengumpulkan sampel suara dari berbagai daerah di Indonesia untuk melatih model AI pengenalan suara yang lebih akurat dan memahami aksen lokal.</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card-product">
+                <img src="https://www.agnisys.com/wp-content/uploads/2025/06/Visual-representation-of-AI-analyzing-hardware-specifications-with-knowledge-graph-connections-overlaid-on-circuit-designs.jpg" alt="">
+                <div class="card-label-product">OCR Intelligence</div>
+                <div class="info-product">
+                    <h1>OCR Intelligence</h1>
+                    <p>Solusi OCR canggih untuk mengenali dan mengekstrak teks dari berbagai sumber, termasuk plat nomor kendaraan untuk sistem parkir otomatis.</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card-product">
+                <img src="https://images.unsplash.com/photo-1503249023995-51b0f3778ccf?auto=format&fit=crop&w=311&q=80" alt="">
+                <div class="card-label-product">Standar</div>
+                <div class="info-product">
+                    <h1>Standar</h1>
+                    <p>Menguji batas kemampuan perangkat keras terhadap suhu ekstrem, kelembapan, keringat, dan penggunaan jangka panjang yang intens.</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <!-- CARD PRODUCT SECTION (Stacked Cards) -->
+    <section id="card" class="card-section">
+        <div class="about-text reveal">
+            <div class="card-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h2>Translation</h2>
+                    <p class="text2">Menghubungkan Nusantara, Satu Kata di Satu Waktu</p>
+                    <h3 style="margin-top: 20px;">Cakupan Bahasa Kami</h3>
+                    <p  class="text2"><span>Bali & Nusa Tenggara:</span> Bahasa Bali, Sasak, hingga bahasa-bahasa di NTT.<br><span>Jawa & Sunda:</span> Dari Ngoko hingga Krama Inggil, serta halus-kasarnya bahasa Priangan.<br><span>Sumatera:</span> Melayu, Minang, Batak (Karo, Toba, Mandailing), hingga bahasa Aceh.<br><span>Sulawesi & Kalimantan:</span> Bugis, Makassar, Banjar, dan berbagai dialek Dayak.<br><span>Papua:</span> Menjangkau keberagaman dialek unik di tanah Papua.
+                    </p>
+                    
+                </div>
+        <div class="wrapper-product">
+            <!-- Card 1 -->
+            <iframe width="960" height="515"
+                src="https://www.youtube.com/embed/lk86vMQH4yA?autoplay=1&mute=1&loop=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section> 
+    <!-- CARD PRODUCT SECTION (Stacked Cards) -->
+    <section id="card" class="card-section">
+        <div class="about-text reveal">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h2>AI Data Services</h2>
+                    <p class="text2">Di pasar wearable tech yang sangat kompetitif, presisi bukan sekadar fitur—itu adalah fondasi kepercayaan. Kami menyediakan solusi pengujian komprehensif yang berfokus pada integrasi sensor, indikator fisiologis, dan ketahanan perangkat keras untuk memastikan produk Anda tidak hanya berfungsi, tetapi juga unggul.</p>
+                    <h3 style="margin-top: 20px;">Layanan Utama Kami</h3>
+                    <p  class="text2">-> Autopilot Vehicle<br>-> Robotic Development<br>-> Custom AI Solutions
+                    </p>
+                    
+                </div>
+        <div class="wrapper-product">
+            <!-- Card 1 -->
+            <div class="card-product">
+                <img src="https://www.lhpes.com/hubfs/What-is-the-Future-of-Autonomous-Vehicles--AS_138315218.png" alt="">
+                <div class="card-label-product">Autopilot Vehicle</div>
+                <div class="info-product">
+                    <h1>Autopilot Vehicle</h1>
+                    <p>Mengumpulkan data visual dan sensor dari jalan-jalan di Indonesia menggunakan mobil prototype yang dilengkapi radar untuk melatih sistem autopilot.</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card-product">
+                <img src="https://assets.robots.com/general/RobotWorx_Technician_Refurbishing_ndustrial-Robot.jpg" alt="">
+                <div class="card-label-product">Robotic Development</div>
+                <div class="info-product">
+                    <h1>Robotic Development</h1>
+                    <p>Mengumpulkan data untuk development robot</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card-product">
+                <img src="https://www.keystride.com/wp-content/uploads/2024/04/Boosting-Business-Performance-with-Comprehensive-AI-Custom-Model-Development.png" alt="">
+                <div class="card-label-product">Custom AI Solutions</div>
+                <div class="info-product">
+                    <h1>Custom AI Solutions</h1>
+                    <p>pembuatan model AI khusus untuk kebutuhan bisnis Anda</p>
+                    <button>Read More</button>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- TECHNOLOGY SHOWCASE (Horizontal scroll) -->
+    <section id="tech" class="tech-showcase">
+        <h2 class="section-title reveal">Neosantara News</h2>
+        <div class="tech-track-container">
+           <p>No News Available yet :(</p>
+            <div class="tech-track">
+                 
+                <!--<div class="tech-item glass"><i class="fab fa-python"></i> <span>TensorFlow</span></div>
+                <div class="tech-item glass"><i class="fas fa-code-branch"></i> <span>PyTorch</span></div>
+                <div class="tech-item glass"><i class="fas fa-cloud"></i> <span>Kubernetes</span></div>
+                <div class="tech-item glass"><i class="fas fa-database"></i> <span>Ray</span></div>
+                <div class="tech-item glass"><i class="fas fa-microchip"></i> <span>CUDA</span></div>
+                <div class="tech-item glass"><i class="fas fa-project-diagram"></i> <span>ONNX</span></div>
+                <div class="tech-item glass"><i class="fas fa-cogs"></i> <span>MLflow</span></div>
+                <div class="tech-item glass"><i class="fas fa-chart-bar"></i> <span>Tableau</span></div>-->
+            </div>
+        </div>
+    </section>
+
+   
+        
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title reveal">Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Let's build something extraordinary</h3>
+                    <p>Our team of AI experts is ready to help you integrate intelligence into your products.</p>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i>Bali, Indonesia</p>
+                        <p><i class="fas fa-envelope"></i> muliasanthihuaxin@gmail.com</p>
+                        <p><i class="fas fa-globe"></i> mshneosantara.com</p>
+                    </div>
+                </div>
+                <div class="contact-form reveal">
+                    <form id="contactForm" class="glass" action="contact.php" method="POST" novalidate>
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" placeholder=" " required>
+                            <label for="name">Name</label>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" placeholder=" " required>
+                            <label for="email">Email</label>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="4" placeholder=" " required></textarea>
+                            <label for="message">Message</label>
+                            <span class="error-message"></span>
+                        </div>
+                        <button type="submit" class="btn-primary submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">MSH <span class="accent">Neosantara Group</span></span>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MSH Neosantara Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <?php if ($showSuccess): ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showSuccessPopup();
+        });
+    </script>
+    <script>
+document.querySelector('.modal-cta').addEventListener('click', function() {
+    
+    // Tutup modal
+    document.getElementById('modal').style.display = 'none';
+    
+    // Scroll ke section
+    document.getElementById('tech').scrollIntoView({
+        behavior: 'smooth'
+    });
+
+});
+</script>
+
+    <?php endif; ?>
+</body>
+</html>
