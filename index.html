@@ -1,7 +1,4 @@
-<?php
-// Handle success message after form submission
-$showSuccess = isset($_GET['success']) && $_GET['success'] == 1;
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,7 +345,6 @@ $showSuccess = isset($_GET['success']) && $_GET['success'] == 1;
     </footer>
 
     <script src="js/script.js"></script>
-    <?php if ($showSuccess): ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             showSuccessPopup();
@@ -368,6 +364,6 @@ document.querySelector('.modal-cta').addEventListener('click', function() {
 });
 </script>
 
-    <?php endif; ?>
 </body>
 </html>
+
