@@ -1,10 +1,13 @@
-
+<?php
+// Handle success message after form submission
+$showSuccess = isset($_GET['success']) && $_GET['success'] == 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSH Neosantara Group</title>
+    <title>PT MSH Neosantara Group</title>
     <!-- Font Awesome for icons (optional, but kept for simplicity) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
@@ -50,7 +53,7 @@
         <div class="nav-container">
             <div class="logo">
                 <img src="asset/logo_R.png" alt="">
-                <span class="logo-text">M S H<span class="accent"> Neosantara Group</span></span>
+                <span class="logo-text">PT M S H<span class="accent"> Neosantara Group</span></span>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -209,16 +212,18 @@
                     </p>
                     
                 </div>
-        <div class="wrapper-product">
-            <!-- Card 1 -->
-            <iframe width="960" height="515"
-                src="https://www.youtube.com/embed/lk86vMQH4yA?autoplay=1&mute=1&loop=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
+            <div class="video-wrapper reveal">
+                    <div class="iframe-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/lk86vMQH4yA?autoplay=1&mute=1&loop=1"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
     </section> 
     <!-- CARD PRODUCT SECTION (Stacked Cards) -->
     <section id="card" class="card-section">
@@ -329,7 +334,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span class="logo-text">MSH <span class="accent">Neosantara Group</span></span>
+                    <span class="logo-text">PT MSH <span class="accent">Neosantara Group</span></span>
                 </div>
                 <div class="footer-social">
                     <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
@@ -339,12 +344,13 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 MSH Neosantara Group. All rights reserved.</p>
+                <p>&copy; 2026 PT MSH Neosantara Group. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+    <?php if ($showSuccess): ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             showSuccessPopup();
@@ -364,6 +370,6 @@ document.querySelector('.modal-cta').addEventListener('click', function() {
 });
 </script>
 
+    <?php endif; ?>
 </body>
 </html>
-
